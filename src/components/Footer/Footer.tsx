@@ -3,92 +3,127 @@ import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-muted/40 border-t py-2 md:py-4">
-      <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-2">
+    <footer className="bg-muted/40 py-6 text-center">
+      {" "}
+      {/* Removi a borda e deixei padding mais equilibrado */}
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* Atendimento ao Cliente */}
-        <div className="text-center md:text-left">
-          <h3 className="font-bold mb-1">ATENDIMENTO AO CLIENTE</h3>
+        <div className="text-center">
+          <h3 className="font-bold mb-2">ATENDIMENTO AO CLIENTE</h3>
           <ul className="space-y-1">
             <li>
-              <Link href="#">Contato</Link>
+              <Link href="#" className="hover:underline">
+                Contato
+              </Link>
             </li>
             <li>
-              <Link href="#">Guia de Tamanhos</Link>
+              <Link href="#" className="hover:underline">
+                Guia de Tamanhos
+              </Link>
             </li>
             <li>
-              <Link href="#">Meu pedido</Link>
+              <Link href="#" className="hover:underline">
+                Meu pedido
+              </Link>
             </li>
             <li>
-              <Link href="#">Minha conta</Link>
+              <Link href="#" className="hover:underline">
+                Minha conta
+              </Link>
             </li>
             <li>
-              <Link href="#">Pagamento</Link>
+              <Link href="#" className="hover:underline">
+                Pagamento
+              </Link>
             </li>
             <li>
-              <Link href="#">Nossos serviços</Link>
+              <Link href="#" className="hover:underline">
+                Nossos serviços
+              </Link>
             </li>
             <li>
-              <Link href="#">Autenticidade</Link>
+              <Link href="#" className="hover:underline">
+                Autenticidade
+              </Link>
             </li>
           </ul>
         </div>
 
         {/* Entrega & Devoluções */}
-        <div className="text-center md:text-left">
-          <h3 className="font-bold mb-1">ENTREGA & DEVOLUÇÕES</h3>
+        <div className="text-center">
+          <h3 className="font-bold mb-2">ENTREGA & DEVOLUÇÕES</h3>
           <ul className="space-y-1">
             <li>
-              <Link href="#">Envio</Link>
+              <Link href="#" className="hover:underline">
+                Envio
+              </Link>
             </li>
             <li>
-              <Link href="#">Acompanhe seu Pedido</Link>
+              <Link href="#" className="hover:underline">
+                Acompanhe seu Pedido
+              </Link>
             </li>
             <li>
-              <Link href="#">Devoluções, Trocas e Reembolsos</Link>
+              <Link href="#" className="hover:underline">
+                Devoluções, Trocas e Reembolsos
+              </Link>
             </li>
           </ul>
         </div>
 
         {/* Termos e Políticas */}
-        <div className="text-center md:text-left">
-          <h3 className="font-bold mb-1">TERMOS E POLÍTICAS</h3>
+        <div className="text-center">
+          <h3 className="font-bold mb-2">TERMOS E POLÍTICAS</h3>
           <ul className="space-y-1">
             <li>
-              <Link href="#">Termos e Condições de Venda</Link>
+              <Link href="#" className="hover:underline">
+                Termos e Condições de Venda
+              </Link>
             </li>
             <li>
-              <Link href="#">Política de Privacidade</Link>
+              <Link href="#" className="hover:underline">
+                Política de Privacidade
+              </Link>
             </li>
             <li>
-              <Link href="#">Política de Cookies</Link>
+              <Link href="#" className="hover:underline">
+                Política de Cookies
+              </Link>
             </li>
             <li>
-              <Link href="#">Segurança de Dados Pessoais (LGPD)</Link>
+              <Link href="#" className="hover:underline">
+                Segurança de Dados Pessoais (LGPD)
+              </Link>
             </li>
           </ul>
         </div>
 
         {/* Corporativo */}
-        <div className="text-center md:text-left">
-          <h3 className="font-bold mb-1">CORPORATIVO</h3>
+        <div className="text-center">
+          <h3 className="font-bold mb-2">CORPORATIVO</h3>
           <ul className="space-y-1">
             <li>
-              <Link href="#">Encontre uma Loja</Link>
+              <Link href="#" className="hover:underline">
+                Encontre uma Loja
+              </Link>
             </li>
             <li>
-              <Link href="#">Trabalhe Conosco</Link>
+              <Link href="#" className="hover:underline">
+                Trabalhe Conosco
+              </Link>
             </li>
             <li>
-              <Link href="#">Armani/Values</Link>
+              <Link href="#" className="hover:underline">
+                Armani/Values
+              </Link>
             </li>
           </ul>
         </div>
       </div>
-
       {/* Redes Sociais */}
-      <div className="container mx-auto px-4 md:px-6 mt-3 text-center">
-        <h3 className="font-bold mb-1">REDES SOCIAIS</h3>
-        <div className="flex justify-center gap-3 mb-3">
+      <div className="container mx-auto px-4 mt-6 text-center">
+        <h3 className="font-bold mb-2">REDES SOCIAIS</h3>
+        <div className="flex justify-center gap-6 mb-4">
           <Link href="#">
             <Image
               src="/sociais/facebook.png"
@@ -127,11 +162,10 @@ const Footer: React.FC = () => {
           </Link>
         </div>
       </div>
-
       {/* Métodos de Pagamento */}
-      <div className="container mx-auto px-4 md:px-6 mt-3 text-center">
-        <h3 className="font-bold mb-1">MÉTODOS DE PAGAMENTO</h3>
-        <div className="flex justify-center gap-3">
+      <div className="container mx-auto px-4 text-center">
+        <h3 className="font-bold mb-2">MÉTODOS DE PAGAMENTO</h3>
+        <div className="flex justify-center gap-6">
           <Image
             src="/cards/visa.png"
             alt="Visa"
@@ -183,16 +217,15 @@ const Footer: React.FC = () => {
           />
         </div>
       </div>
-
       {/* Copyright */}
-      <div className="container mx-auto px-4 md:px-6 mt-3 text-center">
+      <div className="container mx-auto px-4 mt-6 text-center">
         <p className="text-xs text-muted-foreground">
           Copyright &copy; 2024 Giorgio Armani Brasil - Todos os Direitos
           Reservados | CNPJ: 13.180.502/0023-07
         </p>
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="mt-1 text-sm font-medium hover:underline"
+          className="mt-2 text-sm font-medium hover:underline"
         >
           Voltar para o topo
         </button>
