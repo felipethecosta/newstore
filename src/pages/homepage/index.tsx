@@ -11,9 +11,18 @@ const HomePage: React.FC = () => {
 
       <main className="flex-1">
         {/* Ajuste na centralização do conteúdo principal */}
-        <section className="bg-gradient-to-r from-[#f0f0f0] to-[#e0e0e0] py-12 md:py-16 lg:py-20">
+        <section
+          className="bg-cover bg-center py-12 md:py-16 lg:py-20"
+          style={{
+            backgroundImage: "url('/promotion/banner1.png')", // Definindo a imagem de fundo
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4 text-center md:text-left">
+            <div className="space-y-4 text-center md:text-left bg-white bg-opacity-75 p-6 rounded-md shadow-md">
+              {" "}
+              {/* Caixa branca com transparência */}
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
                 Discover the Latest Trends in Fashion
               </h1>
@@ -49,8 +58,10 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
+
         {/* Novo componente de Featured Products como Carrossel */}
         <FeaturedProductsCarousel />
+
         {/* Seção de categorias de produtos */}
         <section className="bg-gradient-to-r from-[#f0f0f0] to-[#e0e0e0] py-12 md:py-16 lg:py-20">
           <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -105,6 +116,7 @@ const HomePage: React.FC = () => {
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );
