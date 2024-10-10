@@ -1,151 +1,111 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { JSX, SVGProps } from "react";
+import { Cart } from "@/components/Cart/Cart";
+import { JSX, SVGProps, useState, useEffect, useRef } from "react";
 
 function Header() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState(3); // Contagem de itens no carrinho
+  const cartRef = useRef(null); // Ref para o contêiner do carrinho
+
+  // Desabilitar o scroll horizontal quando o carrinho estiver aberto
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.style.overflowX = "hidden";
+    } else {
+      document.body.style.overflowX = "auto";
+    }
+    return () => {
+      document.body.style.overflowX = "auto"; // Limpar o estilo ao desmontar
+    };
+  }, [isCartOpen]);
+
+  // Fechar o carrinho ao clicar fora dele
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setIsCartOpen(false); // Fecha o carrinho se clicar fora
+      }
+    };
+
+    if (isCartOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // Limpa o evento ao desmontar
+    };
+  }, [isCartOpen]);
+
   return (
     <header className="bg-background border-b shadow-sm">
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-14 md:h-16">
         <Link
-          href="#"
+          href="/"
           className="flex items-center gap-2 font-semibold text-lg"
           prefetch={false}
         >
-          <MountainIcon className="h-6 w-6" />
-          <span>Kippos</span>
+          <MountainIcon className="h-8 w-8" />
+          <span className="text-2xl font-bold">Kippos</span>
         </Link>
-        <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="#"
-            className="text-sm font-medium hover:underline"
-            prefetch={false}
-          >
-            Shop
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium hover:underline"
-            prefetch={false}
-          >
-            About
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium hover:underline"
-            prefetch={false}
-          >
-            Contact
-          </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <img
-                  src="/placeholder.svg"
-                  width="36"
-                  height="36"
-                  alt="User Avatar"
-                  className="rounded-full"
-                  style={{ aspectRatio: "36/36", objectFit: "cover" }}
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Orders</DropdownMenuItem>
-              <DropdownMenuItem>Wishlist</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-        <div className="md:hidden">
-          <Button variant="ghost" size="icon">
-            <MenuIcon className="h-6 w-6" />
-          </Button>
+        <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
+            <Link
+              href="#"
+              className="text-sm font-medium hover:underline"
+              prefetch={false}
+            >
+              Entrar
+            </Link>
+            <Button
+              variant="outline"
+              className="relative"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+            >
+              Carrinho ({cartItems})
+            </Button>
+          </div>
         </div>
       </div>
       <nav className="bg-background py-2">
-        <div className="container mx-auto px-4 md:px-6 flex justify-center gap-4 text-sm font-medium">
+        <div className="container mx-auto px-4 md:px-6 flex justify-center gap-8 text-sm font-medium">
           <Link href="#" className="hover:underline" prefetch={false}>
-            Ofertas
+            Promoções
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Novidades
+            Alianças
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Feminino
+            Correntes
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Masculino
+            Anéis
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Infantil
+            Pingentes
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Beleza
+            Brincos
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Básicos
+            Pulseiras
           </Link>
           <Link href="#" className="hover:underline" prefetch={false}>
-            Jeans
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Acessórios
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Calçados
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Esportivo
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Moda Praia
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Moda Íntima
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Lojas Parceiras
-          </Link>
-          <Link href="#" className="hover:underline" prefetch={false}>
-            Ashua
+            Coleções
           </Link>
         </div>
       </nav>
+      {isCartOpen && (
+        <div
+          ref={cartRef}
+          className="fixed top-16 right-0 w-[28rem] max-w-full h-screen overflow-y-auto bg-gray-900 text-gray-200 shadow-lg z-50 p-8"
+        >
+          <Cart onClose={() => setIsCartOpen(false)} />
+        </div>
+      )}
     </header>
-  );
-}
-
-function MenuIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
   );
 }
 
