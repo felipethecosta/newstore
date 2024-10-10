@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Camiseta Estilosa",
+    "price": "$24.99",
+    "image": "https://images.unsplash.com/photo-1592194996308-7a9b60b58f1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Jeans Confortáveis",
+    "price": "$49.99",
+    "image": "https://images.unsplash.com/photo-1593032466073-f5b1e49f6582?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Vestido Elegante",
+    "price": "$69.99",
+    "image": "https://images.unsplash.com/photo-1520653054677-f69d8b2f55cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Acessórios Estilosos",
+    "price": "$14.99",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Tênis Modernos",
+    "price": "$89.99",
+    "image": "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Relógio Clássico",
+    "price": "$129.99",
+    "image": "https://images.unsplash.com/photo-1509191436522-7e0f3f16b8f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Camisa Casual",
+    "price": "$29.99",
+    "image": "https://images.unsplash.com/photo-1564468781195-c141599b9a64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Jaqueta de Couro",
+    "price": "$199.99",
+    "image": "https://images.unsplash.com/photo-1602810318423-35a0105d54ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Chapéu de Verão",
+    "price": "$19.99",
+    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Cachecol de Inverno",
+    "price": "$24.99",
+    "image": "https://images.unsplash.com/photo-1503342452485-86f26f3b2397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Tênis de Corrida",
+    "price": "$59.99",
+    "image": "https://images.unsplash.com/photo-1590487980782-5b2ebecf6a5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Sapatos Formais",
+    "price": "$79.99",
+    "image": "https://images.unsplash.com/photo-1519744346365-821a67b17f23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Boné Esportivo",
+    "price": "$12.99",
+    "image": "https://images.unsplash.com/photo-1526147213178-dc6f4a6ffb76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Shorts Jeans",
+    "price": "$34.99",
+    "image": "https://images.unsplash.com/photo-1581574205873-8a3bdf23fd27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Óculos de Sol",
+    "price": "$49.99",
+    "image": "https://images.unsplash.com/photo-1529429618848-0172f615ff1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Bolsa de Mão",
+    "price": "$89.99",
+    "image": "https://images.unsplash.com/photo-1571771537403-38b5ebf9e2d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Pulseira",
+    "price": "$9.99",
+    "image": "https://images.unsplash.com/photo-1577987276364-d381a60a6c8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Cinto de Couro",
+    "price": "$29.99",
+    "image": "https://images.unsplash.com/photo-1575711638080-4bcf3ff0146a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Salto Alto",
+    "price": "$109.99",
+    "image": "https://images.unsplash.com/photo-1521547647710-73a207d33963?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Calça de Ioga",
+    "price": "$39.99",
+    "image": "https://images.unsplash.com/photo-1551538827-82b3d98918c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  },
+  {
+    "title": "Rastreador de Atividade",
+    "price": "$79.99",
+    "image": "https://images.unsplash.com/photo-1582719478189-b6b3f0b5d6a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+  }
+]

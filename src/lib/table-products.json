@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Camisa Manga Curta Texturizada com Estampa Listras",
+    "price": "R$ 179,90",
+    "installments": "7x de R$ 25,70*",
+    "image": "/images/products/product1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Camisa Comfort em Linho com Estampa de Listas",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Camisa Comfort Básica em Linho com Gola Colarinho",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Camisa em Tricoline com Estampa Floral Vintage",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product4.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Camisa em Tricoline com Estampa Floral Vintage",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product4.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Camisa em Tricoline com Estampa Floral Vintage",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product4.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Camisa em Tricoline com Estampa Floral Vintage",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product4.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Camisa em Tricoline com Estampa Floral Vintage",
+    "price": "R$ 159,90",
+    "installments": "7x de R$ 22,84*",
+    "image": "/images/products/product4.jpg"
+  }
+]
