@@ -64,7 +64,10 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link
+                href="/info/devolucoes-trocas-reembolsos"
+                className="hover:underline"
+              >
                 Devoluções, Trocas e Reembolsos
               </Link>
             </li>
@@ -76,17 +79,26 @@ const Footer: React.FC = () => {
           <h3 className="font-bold mb-2">TERMOS E POLÍTICAS</h3>
           <ul className="space-y-1">
             <li>
-              <Link href="#" className="hover:underline">
+              <Link
+                href="/info/termos-e-condicoes-de-venda"
+                className="hover:underline"
+              >
                 Termos e Condições de Venda
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link
+                href="/info/politica-de-privacidade"
+                className="hover:underline"
+              >
                 Política de Privacidade
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link
+                href="/info/politica-de-cookies"
+                className="hover:underline"
+              >
                 Política de Cookies
               </Link>
             </li>

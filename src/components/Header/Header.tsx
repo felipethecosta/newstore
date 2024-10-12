@@ -1,43 +1,48 @@
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Cart } from "@/components/Cart/Cart";
-import { JSX, SVGProps, useState, useEffect, useRef } from "react";
+import Login from "@/components/Login/Login"; // Componente de Login
+import Register from "@/components/SignUp/Register"; // Componente de Cadastro
 
 function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState(3); // Contagem de itens no carrinho
+  const [isLoginOpen, setIsLoginOpen] = useState(false); // Estado para Login
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false); // Estado para Cadastro
   const cartRef = useRef(null); // Ref para o contêiner do carrinho
+  const modalRef = useRef(null); // Ref para os modais de Login e Cadastro
 
-  // Desabilitar o scroll horizontal quando o carrinho estiver aberto
-  useEffect(() => {
-    if (isCartOpen) {
-      document.body.style.overflowX = "hidden";
-    } else {
-      document.body.style.overflowX = "auto";
-    }
-    return () => {
-      document.body.style.overflowX = "auto"; // Limpar o estilo ao desmontar
-    };
-  }, [isCartOpen]);
-
-  // Fechar o carrinho ao clicar fora dele
+  // Fechar modais e carrinho ao clicar fora
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Fechar o carrinho se clicar fora
       if (cartRef.current && !cartRef.current.contains(event.target)) {
-        setIsCartOpen(false); // Fecha o carrinho se clicar fora
+        setIsCartOpen(false);
+      }
+      // Fechar o modal de login se clicar fora
+      if (
+        isLoginOpen &&
+        modalRef.current &&
+        !modalRef.current.contains(event.target)
+      ) {
+        setIsLoginOpen(false);
+      }
+      // Fechar o modal de cadastro se clicar fora
+      if (
+        isRegisterOpen &&
+        modalRef.current &&
+        !modalRef.current.contains(event.target)
+      ) {
+        setIsRegisterOpen(false);
       }
     };
 
-    if (isCartOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside); // Limpa o evento ao desmontar
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isCartOpen]);
+  }, [isCartOpen, isLoginOpen, isRegisterOpen]);
 
   return (
     <header className="bg-background border-b shadow-sm">
@@ -52,19 +57,19 @@ function Header() {
         </Link>
         <div className="flex items-center gap-6">
           <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="#"
+            {/* Botão para abrir o modal de login */}
+            <button
+              onClick={() => setIsLoginOpen(true)}
               className="text-sm font-medium hover:underline"
-              prefetch={false}
             >
               Entrar
-            </Link>
+            </button>
             <Button
               variant="outline"
               className="relative"
               onClick={() => setIsCartOpen(!isCartOpen)}
             >
-              Carrinho ({cartItems})
+              Carrinho (3)
             </Button>
           </div>
         </div>
@@ -97,6 +102,76 @@ function Header() {
           </Link>
         </div>
       </nav>
+
+      {/* Modal de Login */}
+      {isLoginOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div
+            ref={modalRef}
+            className="relative bg-white rounded-lg shadow-lg w-full max-w-md p-6"
+          >
+            <button
+              onClick={() => setIsLoginOpen(false)} // Fechar modal de login
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            {/* Componente de Login */}
+            <Login
+              onRegisterClick={() => {
+                setIsLoginOpen(false); // Fechar modal de Login
+                setIsRegisterOpen(true); // Abrir modal de Cadastro
+              }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Cadastro */}
+      {isRegisterOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div
+            ref={modalRef}
+            className="relative bg-white rounded-lg shadow-lg w-full max-w-md p-6"
+          >
+            <button
+              onClick={() => setIsRegisterOpen(false)} // Fechar modal de cadastro
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            {/* Componente de Cadastro */}
+            <Register />
+          </div>
+        </div>
+      )}
+
       {isCartOpen && (
         <div
           ref={cartRef}
@@ -109,9 +184,7 @@ function Header() {
   );
 }
 
-function MountainIcon(
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
-) {
+function MountainIcon(props) {
   return (
     <svg
       {...props}
