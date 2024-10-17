@@ -1,14 +1,17 @@
+// Header.js - Arquivo corrigido
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Cart } from "@/components/Cart/Cart";
 import Login from "@/components/Login/Login"; // Componente de Login
 import Register from "@/components/SignUp/Register"; // Componente de Cadastro
+import Avatar from "@/components/ui/avatar"; // Componente de Avatar do Usuário
 
 function Header() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false); // Estado para Login
   const [isRegisterOpen, setIsRegisterOpen] = useState(false); // Estado para Cadastro
+  const [user, setUser] = useState(null); // Estado para armazenar informações do usuário
   const cartRef = useRef(null); // Ref para o contêiner do carrinho
   const modalRef = useRef(null); // Ref para os modais de Login e Cadastro
 
@@ -44,6 +47,12 @@ function Header() {
     };
   }, [isCartOpen, isLoginOpen, isRegisterOpen]);
 
+  // Função para tratar o login do usuário
+  const handleUserLogin = (userData) => {
+    setUser(userData);
+    setIsRegisterOpen(false); // Fechar o modal de cadastro
+  };
+
   return (
     <header className="bg-background border-b shadow-sm">
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-14 md:h-16">
@@ -57,25 +66,33 @@ function Header() {
         </Link>
         <div className="flex items-center gap-6">
           <div className="hidden md:flex items-center gap-8">
-            {/* Botão para abrir o modal de login */}
-            <button
-              onClick={() => setIsLoginOpen(true)}
-              className="text-sm font-medium hover:underline"
-            >
-              Entrar
-            </button>
-            <Button
-              variant="outline"
-              className="relative"
-              onClick={() => setIsCartOpen(!isCartOpen)}
-            >
-              Carrinho (3)
-            </Button>
+            {user ? (
+              // Avatar do usuário autenticado
+              <Avatar name={user.name} />
+            ) : (
+              <>
+                {/* Botão para abrir o modal de login */}
+                <button
+                  onClick={() => setIsLoginOpen(true)}
+                  className="text-sm font-medium hover:underline"
+                >
+                  Entrar
+                </button>
+                <Button
+                  variant="outline"
+                  className="relative"
+                  onClick={() => setIsCartOpen(!isCartOpen)}
+                >
+                  Carrinho (3)
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
       <nav className="bg-background py-2">
         <div className="container mx-auto px-4 md:px-6 flex justify-center gap-8 text-sm font-medium">
+          {/* Links do menu */}
           <Link href="#" className="hover:underline" prefetch={false}>
             Promoções
           </Link>
@@ -167,11 +184,15 @@ function Header() {
               </svg>
             </button>
             {/* Componente de Cadastro */}
-            <Register />
+            <Register
+              onClose={() => setIsRegisterOpen(false)}
+              handleUserLogin={handleUserLogin}
+            />
           </div>
         </div>
       )}
 
+      {/* Carrinho */}
       {isCartOpen && (
         <div
           ref={cartRef}
