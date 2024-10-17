@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { useState } from "react";
+// Removendo a importação do axios devido ao erro de não encontrar o módulo ou suas declarações de tipo correspondentes.
 
 interface RegisterProps {
   onClose: () => void; // Função para fechar o modal de cadastro
@@ -8,6 +8,34 @@ interface RegisterProps {
 
 const Register: React.FC<RegisterProps> = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const userData = {
+      email: event.target.email.value,
+      cpf: event.target.cpf.value,
+      name: event.target.name.value,
+      surname: event.target.surname.value,
+      birthdate: event.target.birthdate.value,
+      password: event.target.password.value,
+      phone: event.target.phone.value,
+    };
+    try {
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+      console.log("Cadastro bem-sucedido:", data);
+      onClose(); // Fecha o modal após o cadastro
+    } catch (error) {
+      console.error("Erro no cadastro:", error);
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50">
@@ -37,7 +65,7 @@ const Register: React.FC<RegisterProps> = ({ onClose }) => {
         </div>
 
         {/* Formulário de cadastro */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="email"
